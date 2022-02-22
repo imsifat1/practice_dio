@@ -2,8 +2,14 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:practice_dio/Controller.dart';
-import 'package:practice_dio/Login/Login.dart';
+import 'package:practice_dio/Design1/WidgetHomePage.dart';
+import 'package:practice_dio/Design2/Design2HomePage.dart';
+import 'package:practice_dio/Design3/constants.dart';
+import 'package:practice_dio/Design3/screens/home/home.dart';
+
+import 'package:practice_dio/HomePage.dart';
 import 'package:practice_dio/Model.dart';
 import 'package:practice_dio/Slider/SliderPage.dart';
 
@@ -18,7 +24,33 @@ class MyHttpOverrides extends HttpOverrides {
 
 void main() {
   HttpOverrides.global = new MyHttpOverrides();
-  runApp(GetMaterialApp(home: TestHomePage()));
+  runApp(GetMaterialApp(home: HomePage()));
+}
+
+class MyApp1 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(primarySwatch: Colors.blue, fontFamily: "Montserrat"),
+      home: Design2HomePage(),
+    );
+  }
+}
+
+class MyApp3 extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Web',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          primaryColor: kPrimaryColor,
+          textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)),
+      home: HomeScreen(),
+    );
+  }
 }
 
 RxInt counter = 0.obs;
@@ -51,7 +83,7 @@ class TestHomePage extends StatelessWidget {
   }
 }
 
-class MyApp extends StatelessWidget {
+class MyApp2 extends StatelessWidget {
   Controller controller = Get.put(Controller());
 
   @override

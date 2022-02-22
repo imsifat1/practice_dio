@@ -41,6 +41,8 @@ dependencies:
   provider: ^6.0.2
   shared_preferences: ^2.0.8
   smooth_page_indicator: ^1.0.0+2
+  flutter_svg : ^0.17.4
+  google_fonts: ^2.1.0
 
 dev_dependencies:
   flutter_lints: ^1.0.0
@@ -53,10 +55,29 @@ dev_dependencies:
 flutter:
   assets:
     - lib/images/logo.png
+    - assets/images/lp_image.png
+    - assets/images/logo.png
+    - assets/images/main.png
+
+
+fonts:
+  - family: Roboto
+    fonts:
+      - asset: assets/fonts/Roboto-Regular.ttf
+        weight: 400
+      - asset: assets/fonts/Roboto-Medium.ttf
+        weight: normal
+      - asset: assets/fonts/Roboto-Black.ttf
+        weight: 900
+  - family: Montserrat
+    fonts:
+      - asset: assets/fonts/Montserrat-Bold.ttf
+      - asset: assets/fonts/Montserrat-Regular.ttf
+
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
-  uses-material-design: true
+  - uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/logo.png

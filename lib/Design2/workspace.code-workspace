@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "assets",
+			"path": "..\\..\\..\\..\\Game\\flutter_webpage-master\\flutter_webpage-master\\assets"
+		},
+		{
+			"name": "practice_dio",
+			"path": "..\\.."
+		}
+	],
+	"settings": {}
+}

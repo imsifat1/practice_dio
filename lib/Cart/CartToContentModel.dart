@@ -11,9 +11,9 @@ class CartToContentModel {
     required this.itemCount,
   });
 
-  final String cartTotal;
-  final List<CartContent> cartContent;
-  final int itemCount;
+  final String? cartTotal;
+  final List<CartContent>? cartContent;
+  final int? itemCount;
 
   factory CartToContentModel.fromJson(String str) =>
       CartToContentModel.fromMap(json.decode(str));
@@ -31,7 +31,7 @@ class CartToContentModel {
 
   Map<String, dynamic> toMap() => {
         "cart_total": cartTotal,
-        "cart_content": List<dynamic>.from(cartContent.map((x) => x.toMap())),
+        "cart_content": List<dynamic>.from(cartContent!.map((x) => x.toMap())),
         "item_count": itemCount,
       };
 }
@@ -50,16 +50,16 @@ class CartContent {
     required this.subtotal,
   });
 
-  final String rowId;
-  final int id;
-  final String name;
-  final String qty;
-  final int price;
+  final String? rowId;
+  final int? id;
+  final String? name;
+  final String? qty;
+  final int? price;
   final int? weight;
-  final Options options;
-  final int discount;
-  final int tax;
-  final int subtotal;
+  final Options? options;
+  final int? discount;
+  final int? tax;
+  final int? subtotal;
 
   factory CartContent.fromJson(String str) =>
       CartContent.fromMap(json.decode(str));
@@ -86,7 +86,7 @@ class CartContent {
         "qty": qty,
         "price": price,
         "weight": weight,
-        "options": options.toMap(),
+        "options": options?.toMap(),
         "discount": discount,
         "tax": tax,
         "subtotal": subtotal,

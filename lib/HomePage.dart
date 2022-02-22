@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:practice_dio/Cart/AddToCartService.dart';
 import 'package:practice_dio/Cart/CartToContentService.dart';
 import 'package:practice_dio/Cart/CheckOutService.dart';
+import 'package:practice_dio/Cart/cart_list_page.dart';
 import 'package:practice_dio/Login/Login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -16,6 +17,8 @@ class _HomePageState extends State<HomePage> {
   var cart = CartToContentService();
 
   var addCart = AddToCartService();
+
+  Session session = Session();
 
   String _addToCartStatus = "";
   String _cartListStatus = "";
@@ -41,19 +44,23 @@ class _HomePageState extends State<HomePage> {
                   color: Colors.amber,
                   child: Text("Add To Cart"),
                   onPressed: () {
-                    setState(() {
-                      _addToCartStatus = addCart.addToCartStatus;
-                    });
+                    // _addToCartStatus = addCart.addToCartStatus;
+                    // session.get(
+                    //     "https://www.moharaj.com.bd/_public/addToCart?quantity=5&slug=cotton-fleece-hoodie-for-men-tekka-8486&variant_id=24469");
+
                     addCart.getData();
                   }),
               MaterialButton(
                   color: Colors.green,
                   child: Text("Cart List"),
                   onPressed: () {
-                    setState(() {
-                      _cartListStatus = cart.cartListStatus;
-                    });
-                    cart.getCartContent();
+                    // _cartListStatus = cart.cartListStatus;
+                    // session.get(
+                    //     "https://www.moharaj.com.bd/_public/cartToContent");
+
+                    // cart.getCartContent();
+                    Get.to(() => CartListPage());
+                    // addCart.getCartContent();
                   }),
               MaterialButton(
                   color: Colors.cyan,
