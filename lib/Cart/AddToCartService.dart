@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:practice_dio/Cart/CartToContentModel.dart';
+import 'package:practice_dio/Cart/practice_model.dart';
 
 Session session = Session();
 
@@ -26,9 +27,11 @@ class AddToCartService {
 
     CartToContentModel? model;
     if (response.statusCode == 200) {
-      print(response.body);
-      var decode = json.decode(response.body);
-      model = CartToContentModel.fromJson(decode);
+      // print(response.body);
+      var pmodel = PracticeModel.fromJson(response.body);
+      print(pmodel);
+      // Map<String, dynamic> decode = json.decode(response.body);
+      model = CartToContentModel.fromJson(response.body);
       return model;
       // cartListStatus = response.body;
     } else {

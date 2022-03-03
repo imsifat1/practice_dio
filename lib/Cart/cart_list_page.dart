@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:practice_dio/Cart/AddToCartService.dart';
 import 'package:practice_dio/Cart/CartToContentModel.dart';
 import 'package:practice_dio/Cart/cart_controller.dart';
@@ -23,22 +24,28 @@ class _CartListPageState extends State<CartListPage> {
 
   @override
   Widget build(BuildContext context) {
-    CartController cartController = CartController();
+    CartController cartController = Get.put(CartController());
     return Scaffold(
       appBar: AppBar(title: Text("Cart")),
       body: Container(
         child: FutureBuilder<CartToContentModel?>(
             future: getData,
             builder: ((context, snapshot) {
-              return ListView.builder(
-                  itemCount: snapshot.data!.cartContent?.length,
-                  itemBuilder: ((context, index) {
-                    var data = snapshot.data!.cartContent![index];
-                    print(data.name);
-                    return ListTile(
-                      title: Text(data.name.toString()),
-                    );
-                  }));
+              if (snapshot.hasData) {
+                return ListView.builder(
+                    itemCount: snapshot.data!.cartContent?.length,
+                    itemBuilder: ((context, index) {
+                      var data = snapshot.data!.cartContent![index];
+                      print(data.name);
+                      return ListTile(
+                        title: Text(data.name.toString()),
+                      );
+                    }));
+              } else {
+                return Center(
+                  child: CircularProgressIndicator.adaptive(),
+                );
+              }
             })),
       ),
     );

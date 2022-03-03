@@ -1,10 +1,8 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:practice_dio/Controller.dart';
-import 'package:practice_dio/Design1/WidgetHomePage.dart';
 import 'package:practice_dio/Design2/Design2HomePage.dart';
 import 'package:practice_dio/Design3/constants.dart';
 import 'package:practice_dio/Design3/screens/home/home.dart';

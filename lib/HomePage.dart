@@ -40,6 +40,8 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: 10,
               ),
+
+              /// ---------------------------add to cart--------------------------------------
               MaterialButton(
                   color: Colors.amber,
                   child: Text("Add To Cart"),
@@ -50,6 +52,8 @@ class _HomePageState extends State<HomePage> {
 
                     addCart.getData();
                   }),
+
+              /// ---------------------------cart list--------------------------------------
               MaterialButton(
                   color: Colors.green,
                   child: Text("Cart List"),
@@ -62,11 +66,13 @@ class _HomePageState extends State<HomePage> {
                     Get.to(() => CartListPage());
                     // addCart.getCartContent();
                   }),
+
+              /// ---------------------------checkout--------------------------------------
               MaterialButton(
                   color: Colors.cyan,
                   child: Text("Check Out"),
                   onPressed: () {
-                    CheckOutService.getCheckOut();
+                    addCart.checkout();
                   }),
               MaterialButton(
                   color: Colors.red,
